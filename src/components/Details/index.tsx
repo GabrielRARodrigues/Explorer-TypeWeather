@@ -1,19 +1,24 @@
-import './styles.css';
+import './styles.css'
 
-import dropLight from '../../assets/svg/drop_light.svg';
-import windLight from '../../assets/svg/wind_light.svg';
-import sunDimLight from '../../assets/svg/sun_dim_light.svg';
-import cloudRainLight from '../../assets/svg/cloud_rain_light.svg';
-import thermometerSimpleLight from '../../assets/svg/thermometer_simple_light.svg';
+import dropLight from '../../assets/svg/drop_light.svg'
+import windLight from '../../assets/svg/wind_light.svg'
+import sunDimLight from '../../assets/svg/sun_dim_light.svg'
+import cloudRainLight from '../../assets/svg/cloud_rain_light.svg'
+import thermometerSimpleLight from '../../assets/svg/thermometer_simple_light.svg'
 
-import { WeatherItem } from '../WeatherItem';
+import { WeatherItem } from '../WeatherItem'
+import { IWeatherDetailsResponseProps } from '../../services/getWeatherByCity'
 
-export function Details({ data }) {
+interface IProps {
+  data: IWeatherDetailsResponseProps
+}
+
+export function Details({ data }: IProps) {
   return (
-    <section className='weather-detail'>
+    <section className="weather-detail">
       <h1>Detalhes do clima hoje</h1>
 
-      <div className='weather-items'>
+      <div className="weather-items">
         <WeatherItem
           icon={thermometerSimpleLight}
           title="Sensação térmica"
@@ -41,7 +46,7 @@ export function Details({ data }) {
         <WeatherItem
           icon={sunDimLight}
           title="Variação da temperatura"
-          value={data.temp_kf}
+          value={data.temp_kf.toString()}
         />
       </div>
     </section>
